@@ -1,0 +1,47 @@
+﻿@model AppData.Models.Mau
+
+@{
+    ViewData["Title"] = "themmoiMau";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+
+<div>
+    @Html.ActionLink("Quay Lại <3", "hienthiBangMau")
+</div>
+
+<div class="box box-primary" style="color:white">
+    <form method="post" action="" enctype="multipart/form-data">
+        @using (Html.BeginForm())
+        {
+            <!-- /.box-header -->
+            <div class="box-body" style = "width: 80%; padding-left: 10%">
+                <div class="nav-tabs-custom">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @*   <h4>KhachHang</h4>*@
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label asp-for="TenMau" class="control-label">Tên Màu</label>
+                            @Html.TextBoxFor(m => m.TenMau, new { @class = "form-control" } )
+                            @Html.ValidationMessageFor(Model => Model.TenMau, "", new { @class = "text-danger" })
+                        </div>
+                        @* <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div> *@
+                        <div class="box-header with-border" style="padding-top: 5px">
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-info btn-sm" type="submit"><i class="fa fa-check"></i> Lưu </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>@*tab panel*@
+            </div>
+        }
+    </form>
+</div>
+<!--</div>-->

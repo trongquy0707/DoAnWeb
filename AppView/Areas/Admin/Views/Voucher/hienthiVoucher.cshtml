@@ -1,0 +1,84 @@
+﻿@model IEnumerable<AppData.Models.Voucherr>
+
+@{
+    ViewData["Title"] = "hienthiVoucher";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+<h2>hienthiVoucher</h2>
+
+<p>
+    <a href ="themmoiVoucher">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVoucher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenVoucher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianBatDau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianKetThuc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Min)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Max)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianTao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVoucher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVoucher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Min)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Max)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "suaVoucher", new { id=item.IdVoucher }) |
+               
+                    @Html.ActionLink("Delete", "xoaVoucher", new { id=item.IdVoucher })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

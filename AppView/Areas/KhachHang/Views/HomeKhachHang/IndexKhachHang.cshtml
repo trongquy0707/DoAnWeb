@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "IndexKhachHang";
+    Layout = "~/Areas/KhachHang/Views/Shared/layout_KhachHang.cshtml";
+}
+
+@{
+    List<AppData.ViewModels.SanPhamChiTietViewModel> data = (List<AppData.ViewModels.SanPhamChiTietViewModel>)ViewBag.SPCT;
+}
+
+
+<div class="main-banner" id="top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-content">
+                    <div class="thumb">
+                        <div class="inner-content">
+                            <h4>Hexashop</h4>
+                            <span></span>
+                            <div class="main-border-button">
+                                <a href="#">Mua ngay</a>
+                            </div>
+                        </div>
+                        <img src="~/khachhang/images/coolMate_4.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4 style="color:black">Đồ thể thao</h4>
+                                        <span></span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Đồ thể thao</h4>
+                                            <p>Thoải mái luyện tập không lo khó chịu</p>
+                                            <div class="main-border-button">
+                                                <a href="#">Khám Phá</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="~/khachhang/images/coolMate_1.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4 style="color:black">Đồ mùa đông</h4>
+                                        <span></span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Đồ mùa đông</h4>
+                                            <p>Mùa đông lạnh đã có Hexashop</p>
+                                            <div class="main-border-button">
+                                                <a href="#">Khám Phá</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="~/khachhang/images/coolmate_dong.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4 style="color:black">Mặc hằng ngày</h4>
+                                        <span></span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Mặc hằng ngày</h4>
+                                            <p>Thoải mái với Hexashop</p>
+                                            <div class="main-border-button">
+                                                <a href="#">Khám Phá</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="~/khachhang/images/coomate_hangngay.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-first-image">
+                                <div class="thumb">
+                                    <div class="inner-content">
+                                        <h4 style="color:black">Đồ lót</h4>
+                                        <span></span>
+                                    </div>
+                                    <div class="hover-content">
+                                        <div class="inner">
+                                            <h4>Đồ lót</h4>
+                                            <p></p>
+                                            <div class="main-border-button">
+                                                <a href="#">Khám Phá</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="~/khachhang/images/coolmate_dolot.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section" id="men">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Tất cả sản phẩm</h2>
+                    <span>Shopping cùng COOLMATE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="men-item-carousel">
+                    <div class="owl-men-item owl-carousel">
+
+                        ̣@if (data != null)
+                        {
+                            @* foreach (var item in data) *@
+                            for (int i = 0; i < data.Count; i++)
+                            {
+                                <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="@Url.Action( "ChiTietSanPham", new { id = @data[i].IdSanPhamChiTiet }) "><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                        <img src="~/Assets/Uploads/@data[i].Anh" alt="">
+                                    </div>
+                                    <div class="down-content">
+                                        <h4>@data[i].TenSanPham</h4>
+                                        <span>$@data[i].GiaSp</span>
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="explore">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="left-content">
+                    <h2>Khám phá sản phẩm </h2>
+
+                    <div class="quote">
+                        <i class="fa fa-quote-left"></i><p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa..</p>
+                    </div>
+                    <div class="main-border-button">
+                        <a href="products.html">Khám Phá</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="leather">
+                                <h4>Phá Cách</h4>
+                                <span>Những phong cách mới được nảy mầm</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="first-image">
+                                <img src="~/khachhang/images/coolMate_combo.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="second-image">
+                                <img src="~/khachhang/images/coolmate_phacach.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="types">
+                                <h4>Những loại khác</h4>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

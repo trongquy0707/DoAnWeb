@@ -1,0 +1,88 @@
+﻿@model IEnumerable<AppData.ViewModels.SanPhamChiTietViewModel>
+@{
+    ViewData["Title"] = "hienthiSanPhamCT";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+<h2>hienthiSanPhamCT</h2>
+
+<p>
+    <a href="~/Admin/SanPhamChiTiet/themmoiSanPhamCT">Create New</a>
+</p>
+<table class="table" style="color:white">
+    <thead>
+        <tr>
+            <th>
+                ID Sản Phẩm
+            </th>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Danh Mục Sản Phẩm
+            </th>
+            <th>
+                Màu
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Ảnh
+            </th>
+            <th>
+                Giá Sản Phẩm
+            </th>
+            <th>
+                Trạng Thái
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSanPhamChiTiet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DanhMucSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mau)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    <img src="~/Assets/Uploads/@item.Anh" width="90px" height="90px" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaSp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThai)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "suaSanPhamCT", new {   id=item.IdSanPhamChiTiet }) |
+                    <a href="@Url.Action("XoaSanPhamCT","SanPhamChiTiet",new {id=item.IdSanPhamChiTiet })" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="text-muted px-1">
+                        <i class="fas fa-trash" style="color: #ff0000;"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

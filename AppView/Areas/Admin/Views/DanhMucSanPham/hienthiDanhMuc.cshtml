@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AppData.Models.DanhMucSanPham>
+
+@{
+    ViewData["Title"] = "hienthiDanhMuc";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+
+
+<p>
+    <a href="~/Admin/DanhMucSanPham/themmoiDanhMuc">Thêm mới Danh Mục</a>
+
+</p>
+<table class="table" style="color:white">
+    <thead>
+        <tr>
+            <th>
+              ID Danh Mục
+            </th>
+            <th>
+               Tên Danh Mục
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDanhMucSanPham)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "suaDanhMuc", new { id =item.IdDanhMucSanPham })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

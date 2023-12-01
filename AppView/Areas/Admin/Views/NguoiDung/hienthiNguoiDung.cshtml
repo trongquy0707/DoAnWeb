@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AppData.Models.User>
+
+@{
+    ViewData["Title"] = "hienthiNguoiDung";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+<form method="post" enctype="multipart/form-data" >
+    <table class="table" style="color:white">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoDienThoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MatKhau)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TrangThai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdChucVu)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoDienThoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MatKhau)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TrangThai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdChucVu)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Mở Khóa", "MoUser", new { IdUser=item.IdUser}) |
+                        @Html.ActionLink("Khóa User", "KhoaUser", new { IdUser =item.IdUser })
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</form>

@@ -1,0 +1,66 @@
+﻿@model AppData.Models.Voucherr
+
+@{
+    ViewData["Title"] = "themmoiVoucher";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+<h2>themmoiVoucher</h2>
+
+<h4>Voucherr</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="themmoiVoucher" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenVoucher" class="control-label">TenVoucher</label>
+                @Html.TextBoxFor(m => m.TenVoucher, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.TenVoucher, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="SoLuong" class="control-label">SoLuong</label>
+                @Html.TextBoxFor(m => m.SoLuong, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.SoLuong, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="ThoiGianBatDau" class="control-label">ThoiGianBatDau</label>
+                @Html.TextBoxFor(m => m.ThoiGianBatDau, new { type = "date", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.ThoiGianBatDau, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="ThoiGianKetThuc" class="control-label">ThoiGianKetThuc</label>
+                @Html.TextBoxFor(m => m.ThoiGianKetThuc, new { type = "date", @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.ThoiGianKetThuc, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Min" class="control-label">Min</label>
+                @Html.TextBoxFor(m => m.Min, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Min, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Max" class="control-label">Max</label>
+                @Html.TextBoxFor(m => m.Max, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Max, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="ThoiGianTao" class="control-label">ThoiGianTao</label>
+                @Html.TextBoxFor(m => m.ThoiGianTao, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.ThoiGianTao, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="TrangThai" class="control-label">TrangThai</label>
+                @Html.TextBoxFor(m => m.TrangThai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

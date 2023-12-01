@@ -1,0 +1,75 @@
+﻿@model AppData.Models.SanPhamChiTiet
+
+@{
+    ViewData["Title"] = "XoaSanPhamCT";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+
+<h2>XoaSanPhamCT</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SanPhamChiTiet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSanPhamChiTiet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdSanPhamChiTiet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDanhMucSanPham)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdDanhMucSanPham)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMau)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdMau)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSize)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdSize)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaSp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GiaSp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSanPham)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TenSanPham)
+        </dd>
+    </dl>
+    
+    <form asp-action="XoaSanPhamCT">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a href="hienthiSanPhamCT">Back to List</a>
+    </form>
+</div>

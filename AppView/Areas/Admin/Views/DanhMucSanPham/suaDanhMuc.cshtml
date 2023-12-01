@@ -1,0 +1,44 @@
+﻿@model AppData.Models.DanhMucSanPham
+
+@{
+    ViewData["Title"] = "suaDanhMuc";
+    Layout = "~/Areas/Admin/Views/Shared/layout_Admin.cshtml";
+}
+<div>
+    @Html.ActionLink("Quay Lại <3", "hienthiDanhMuc")
+</div>
+
+<div class="box box-primary" style="color:white">
+    <form method="post" action="" enctype="multipart/form-data">
+        @using (Html.BeginForm())
+        {
+            <!-- /.box-header -->
+            <div class="box-body" style="width: 80%; padding-left: 10%">
+                <div class="nav-tabs-custom">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group" style="display:none">
+                            <label asp-for="IdDanhMucSanPham" class="control-label">Tên Danh Mục</label>
+                            @Html.TextBoxFor(m => m.IdDanhMucSanPham, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(Model => Model.IdDanhMucSanPham, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="TenDanhMuc" class="control-label">Tên Danh Mục</label>
+                            @Html.TextBoxFor(m => m.TenDanhMuc, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(Model => Model.TenDanhMuc, "", new { @class = "text-danger" })
+                        </div>
+                      
+                        <div class="box-header with-border" style="padding-top: 5px">
+                            <div class="box-tools pull-right">
+                                <button class="btn btn-info btn-sm" type="submit"><i class="fa fa-check"></i> Lưu </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </form>
+</div> 
